@@ -1,0 +1,84 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum Role {
+  USER
+  ADMIN
+  MANAGER
+}
+
+model User {
+  id            Int            @id @default(autoincrement())
+  email         String         @unique
+  password      String
+  role          Role           @default(USER)
+  createdTasks  Task[]         @relation("CreatedBy")
+  assignedTasks Task[]         @relation("AssignedTo")
+  notifications Notification[]
+  createdAt     DateTime       @default(now())
+}
+
+model Task {
+  id           Int        @id @default(autoincrement())
+  title        String
+  description  String
+  dueDate      DateTime
+  priority     Priority   @default(MEDIUM)
+  status       Status     @default(TODO)
+  recurrence   Recurrence @default(NONE)
+  createdBy    User       @relation("CreatedBy", fields: [createdById], references: [id])
+  createdById  Int
+  assignedTo   User?      @relation("AssignedTo", fields: [assignedToId], references: [id])
+  assignedToId Int?
+  createdAt    DateTime   @default(now())
+}
+
+model Notification {
+  id        Int      @id @default(autoincrement())
+  message   String
+  read      Boolean  @default(false)
+  type      String // EMAIL, IN_APP
+  userId    Int
+  user      User     @relation(fields: [userId], references: [id])
+  createdAt DateTime @default(now())
+}
+
+model AuditLog {
+  id        Int      @id @default(autoincrement())
+  action    String // TASK_CREATE, TASK_UPDATE, etc.
+  userId    Int
+  taskId    Int?
+  createdAt DateTime @default(now())
+}
+
+enum Priority {
+  LOW
+  MEDIUM
+  HIGH
+}
+
+enum Status {
+  TODO
+  IN_PROGRESS
+  DONE
+}
+
+enum Recurrence {
+  NONE
+  DAILY
+  WEEKLY
+  MONTHLY
+}
