@@ -1,15 +1,17 @@
 const express = require('express');
 const router = express.Router();
 const { createTask, getTasks, updateTask, deleteTask } = require('../controllers/taskController');
-const authenticate = require('../middlewares/auth');
+const {authenticate} = require('../middlewares/auth');
 const { validateTask } = require('../middlewares/validation');
 const { adminCheck, managerCheck } = require('../middlewares/roleCheck');
 
 // Create task (authenticated users)
 router.post('/', authenticate, validateTask, createTask);
+console.log("post task working")
 
 // Get tasks with filters
 router.get('/', authenticate, getTasks);
+console.log("get task working")
 
 // Update task (owner or manager/admin)
 router.put('/:id', authenticate, async (req, res, next) => {
@@ -25,8 +27,10 @@ router.put('/:id', authenticate, async (req, res, next) => {
     next(error);
   }
 }, updateTask);
+console.log("update task working")
 
 // Delete task (admin only)
 router.delete('/:id', authenticate, adminCheck, deleteTask);
+console.log("delete task working")
 
 module.exports = router;

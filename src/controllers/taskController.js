@@ -1,105 +1,197 @@
-const bcrypt = require('bcrypt');
-const jwt = require('jsonwebtoken');
 const { prisma } = require('../config/db');
 const logger = require('../config/logger');
+const { createNotification } = require('./notificationController');
 
-const register = async (req, res) => {
+const createTask = async (req, res) => {
   try {
-    const { email, password } = req.body;
+    const { title, description, dueDate, priority, status, recurrence, assignedToId } = req.body;
 
-    // Validate existing user
-    const existingUser = await prisma.user.findUnique({ where: { email } });
-    if (existingUser) {
-      return res.status(409).json({ message: 'Email already exists' });
+    // Validate assigned user
+    if (assignedToId) {
+      const userExists = await prisma.user.findUnique({
+        where: { id: assignedToId }
+      });
+      if (!userExists) {
+        return res.status(400).json({ message: 'Invalid user assignment' });
+      }
     }
 
-    // Hash password
-    const hashedPassword = await bcrypt.hash(password, 10);
-    
-    // Create user
-    const user = await prisma.user.create({
+    // Create task
+    const task = await prisma.task.create({
       data: {
-        email,
-        password: hashedPassword,
-        role: 'USER'
+        title,
+        description,
+        dueDate: new Date(dueDate),
+        priority,
+        status: status || 'TODO',
+        recurrence: recurrence || 'NONE',
+        createdById: req.userId,
+        assignedToId
       },
-      select: {
-        id: true,
-        email: true,
-        role: true,
-        createdAt: true
+      include: {
+        createdBy: true,
+        assignedTo: true
       }
     });
 
-    // Generate JWT
-    const token = jwt.sign(
-      { userId: user.id },
-      process.env.JWT_SECRET,
-      { expiresIn: '1h' }
-    );
-
-    // Set cookie
-    res.cookie('token', token, {
-      httpOnly: true,
-      secure: process.env.NODE_ENV === 'production',
-      maxAge: 3600000
+    // Audit log
+    await prisma.auditLog.create({
+      data: {
+        action: 'TASK_CREATE',
+        userId: req.userId,
+        taskId: task.id
+      }
     });
 
-    res.status(201).json(user);
+    // Send notification
+    if (assignedToId) {
+      await createNotification(
+        assignedToId,
+        `New task assigned: ${title}`,
+        'IN_APP'
+      );
+    }
+
+    res.status(201).json(task);
   } catch (error) {
-    logger.error(`Registration error: ${error.message}`);
-    res.status(500).json({ message: 'Registration failed' });
+    logger.error(`Task creation error: ${error.message}`);
+    res.status(500).json({ message: 'Failed to create task' });
   }
 };
 
-const login = async (req, res) => {
+const getTasks = async (req, res) => {
   try {
-    const { email, password } = req.body;
-
-    // Find user
-    const user = await prisma.user.findUnique({ where: { email } });
-    if (!user) {
-      return res.status(401).json({ message: 'Invalid credentials' });
-    }
-
-    // Validate password
-    const validPassword = await bcrypt.compare(password, user.password);
-    if (!validPassword) {
-      return res.status(401).json({ message: 'Invalid credentials' });
-    }
-
-    // Generate JWT
-    const token = jwt.sign(
-      { userId: user.id },
-      process.env.JWT_SECRET,
-      { expiresIn: '1h' }
-    );
-
-    // Set cookie
-    res.cookie('token', token, {
-      httpOnly: true,
-      secure: process.env.NODE_ENV === 'production',
-      maxAge: 3600000
+    const tasks = await prisma.task.findMany({
+      where: {
+        OR: [
+          { title: { contains: req.query.search } },
+          { description: { contains: req.query.search } }
+        ],
+        status: req.query.status,
+        priority: req.query.priority
+      },
+      include: {
+        createdBy: true,
+        assignedTo: true
+      }
     });
-
-    res.json({
-      id: user.id,
-      email: user.email,
-      role: user.role
-    });
+    res.json(tasks);
   } catch (error) {
-    logger.error(`Login error: ${error.message}`);
-    res.status(500).json({ message: 'Login failed' });
+    logger.error(`Task fetch error: ${error.message}`);
+    res.status(500).json({ message: 'Failed to fetch tasks' });
+  }
+};
+const updateTask = async (req, res) => {
+  try {
+    const taskId = parseInt(req.params.id);
+    const updateData = req.body;
+    
+    // Verify task exists
+    const existingTask = await prisma.task.findUnique({
+      where: { id: taskId },
+      include: { createdBy: true }
+    });
+
+    if (!existingTask) {
+      return res.status(404).json({ message: 'Task not found' });
+    }
+
+    // Authorization check (owner or admin/manager)
+    if (existingTask.createdById !== req.userId && req.user.role === 'USER') {
+      return res.status(403).json({ message: 'Not authorized to update this task' });
+    }
+
+    // Validate assigned user if changing assignment
+    if (updateData.assignedToId) {
+      const userExists = await prisma.user.findUnique({
+        where: { id: updateData.assignedToId }
+      });
+      if (!userExists) {
+        return res.status(400).json({ message: 'Invalid user assignment' });
+      }
+    }
+
+    // Update task
+    const updatedTask = await prisma.task.update({
+      where: { id: taskId },
+      data: {
+        title: updateData.title,
+        description: updateData.description,
+        dueDate: updateData.dueDate ? new Date(updateData.dueDate) : undefined,
+        priority: updateData.priority,
+        status: updateData.status,
+        recurrence: updateData.recurrence,
+        assignedToId: updateData.assignedToId
+      },
+      include: {
+        createdBy: true,
+        assignedTo: true
+      }
+    });
+
+    // Create audit log
+    await prisma.auditLog.create({
+      data: {
+        action: 'TASK_UPDATE',
+        userId: req.userId,
+        taskId: taskId
+      }
+    });
+
+    // Notify new assignee if changed
+    if (updateData.assignedToId && 
+        updateData.assignedToId !== existingTask.assignedToId) {
+      await createNotification(
+        updateData.assignedToId,
+        `Task updated: ${updatedTask.title}`,
+        'IN_APP'
+      );
+    }
+
+    res.json(updatedTask);
+  } catch (error) {
+    logger.error(`Task update error: ${error.message}`);
+    res.status(500).json({ message: 'Failed to update task' });
   }
 };
 
-const logout = (req, res) => {
-  res.clearCookie('token');
-  res.json({ message: 'Logged out successfully' });
+const deleteTask = async (req, res) => {
+  try {
+    const taskId = parseInt(req.params.id);
+
+    // Verify task exists
+    const existingTask = await prisma.task.findUnique({
+      where: { id: taskId }
+    });
+
+    if (!existingTask) {
+      return res.status(404).json({ message: 'Task not found' });
+    }
+
+    // Delete task
+    await prisma.task.delete({
+      where: { id: taskId }
+    });
+
+    // Create audit log
+    await prisma.auditLog.create({
+      data: {
+        action: 'TASK_DELETE',
+        userId: req.userId,
+        taskId: taskId
+      }
+    });
+
+    res.json({ message: 'Task deleted successfully' });
+  } catch (error) {
+    logger.error(`Task deletion error: ${error.message}`);
+    res.status(500).json({ message: 'Failed to delete task' });
+  }
 };
 
 module.exports = {
-  register,
-  login,
-  logout
+  createTask,
+  getTasks,
+  updateTask,
+  deleteTask
 };
