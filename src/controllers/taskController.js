@@ -7,9 +7,10 @@ const createTask = async (req, res) => {
     const { title, description, dueDate, priority, status, recurrence, assignedToId } = req.body;
 
     // Validate assigned user
+    
     if (assignedToId) {
       const userExists = await prisma.user.findUnique({
-        where: { id: assignedToId }
+        where: { id: Number(assignedToId) }
       });
       if (!userExists) {
         return res.status(400).json({ message: 'Invalid user assignment' });
@@ -26,13 +27,14 @@ const createTask = async (req, res) => {
         status: status || 'TODO',
         recurrence: recurrence || 'NONE',
         createdById: req.userId,
-        assignedToId
+        assignedToId :Number(assignedToId)
       },
       include: {
         createdBy: true,
         assignedTo: true
       }
     });
+    console.log("task created")
 
     // Audit log
     await prisma.auditLog.create({
@@ -42,17 +44,20 @@ const createTask = async (req, res) => {
         taskId: task.id
       }
     });
+    console.log("audit log created")
 
     // Send notification
     if (assignedToId) {
       await createNotification(
-        assignedToId,
+        Number(assignedToId),
         `New task assigned: ${title}`,
         'IN_APP'
       );
     }
+    console.log("notification sent")
 
     res.status(201).json(task);
+    
   } catch (error) {
     logger.error(`Task creation error: ${error.message}`);
     res.status(500).json({ message: 'Failed to create task' });
@@ -104,7 +109,7 @@ const updateTask = async (req, res) => {
     // Validate assigned user if changing assignment
     if (updateData.assignedToId) {
       const userExists = await prisma.user.findUnique({
-        where: { id: updateData.assignedToId }
+        where: { id: Number(updateData.assignedToId) }
       });
       if (!userExists) {
         return res.status(400).json({ message: 'Invalid user assignment' });
@@ -121,7 +126,7 @@ const updateTask = async (req, res) => {
         priority: updateData.priority,
         status: updateData.status,
         recurrence: updateData.recurrence,
-        assignedToId: updateData.assignedToId
+        assignedToId: Number(updateData.assignedToId)
       },
       include: {
         createdBy: true,
@@ -133,7 +138,7 @@ const updateTask = async (req, res) => {
     await prisma.auditLog.create({
       data: {
         action: 'TASK_UPDATE',
-        userId: req.userId,
+        userId: Number(req.userId),
         taskId: taskId
       }
     });
@@ -188,10 +193,111 @@ const deleteTask = async (req, res) => {
     res.status(500).json({ message: 'Failed to delete task' });
   }
 };
+const getDashboardData = async (req, res) => {
+  try {
+    const userId = req.userId;
+    
+    const [assignedTasks, createdTasks, overdueTasks] = await Promise.all([
+      // Tasks assigned to current user
+      prisma.task.findMany({
+        where: {
+          assignedToId: userId,
+          status: { not: 'DONE' }
+        },
+        include: {
+          assignedTo: true,
+          createdBy: true
+        }
+      }),
 
+      // Tasks created by current user
+      prisma.task.findMany({
+        where: { createdById: userId },
+        include: {
+          assignedTo: true
+        }
+      }),
+
+      // Overdue tasks (both assigned and created)
+      prisma.task.findMany({
+        where: {
+          OR: [
+            { assignedToId: userId },
+            { createdById: userId }
+          ],
+          dueDate: { lt: new Date() },
+          status: { not: 'DONE' }
+        },
+        include: {
+          assignedTo: true,
+          createdBy: true
+        }
+      })
+    ]);
+
+    res.json({
+      assigned: {
+        count: assignedTasks.length,
+        tasks: assignedTasks.slice(0, 5) // Last 5 tasks
+      },
+      created: {
+        count: createdTasks.length,
+        tasks: createdTasks.slice(0, 5)
+      },
+      overdue: {
+        count: overdueTasks.length,
+        tasks: overdueTasks.slice(0, 5)
+      },
+      completionRate: calculateCompletionRate(assignedTasks)
+    });
+
+  } catch (error) {
+    logger.error(`Dashboard error: ${error.message}`);
+    res.status(500).json({ message: 'Failed to load dashboard data' });
+  }
+};
+
+const getTaskById = async (req, res) => {
+  try {
+    const taskId = parseInt(req.params.id);
+    
+    const task = await prisma.task.findUnique({
+      where: { id: taskId },
+      include: {
+        createdBy: true,
+        assignedTo: true,
+        
+      }
+    });
+
+    if (!task) {
+      return res.status(404).json({ message: 'Task not found' });
+    }
+
+    // Authorization check
+    if (task.createdById !== req.userId && task.assignedToId !== req.userId) {
+      return res.status(403).json({ message: 'Not authorized to view this task' });
+    }
+
+    res.json(task);
+  } catch (error) {
+    logger.error(`Task fetch error: ${error.message}`);
+    res.status(500).json({ message: 'Failed to fetch task' });
+  }
+};
+
+// Add to exports
 module.exports = {
   createTask,
   getTasks,
   updateTask,
-  deleteTask
+  deleteTask,
+  getDashboardData,
+  getTaskById
 };
+
+// Helper function
+function calculateCompletionRate(tasks) {
+  const completed = tasks.filter(t => t.status === 'DONE').length;
+  return tasks.length > 0 ? Math.round((completed / tasks.length) * 100) : 0;
+}

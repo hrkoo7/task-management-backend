@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
-const { createTask, getTasks, updateTask, deleteTask } = require('../controllers/taskController');
+const { prisma } = require('../config/db');
+const { createTask, getTasks, updateTask, deleteTask,getTaskById, getDashboardData } = require('../controllers/taskController');
 const {authenticate} = require('../middlewares/auth');
 const { validateTask } = require('../middlewares/validation');
 const { adminCheck, managerCheck } = require('../middlewares/roleCheck');
@@ -32,5 +33,7 @@ console.log("update task working")
 // Delete task (admin only)
 router.delete('/:id', authenticate, adminCheck, deleteTask);
 console.log("delete task working")
+router.get('/dashboard', authenticate, getDashboardData);
+router.get('/:id', authenticate, getTaskById);
 
 module.exports = router;

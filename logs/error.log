@@ -1,0 +1,175 @@
+2025-05-02 15:02:14 [ERROR]: Registration error: Cannot destructure property 'email' of 'req.body' as it is undefined.
+2025-05-02 15:06:33 [ERROR]: Registration error: Cannot destructure property 'email' of 'req.body' as it is undefined.
+2025-05-02 15:15:38 [ERROR]: Registration error: Cannot destructure property 'email' of 'req.body' as it is undefined.
+2025-05-02 15:16:26 [ERROR]: Registration error: Cannot destructure property 'email' of 'req.body' as it is undefined. + undefined
+2025-05-02 15:24:04 [ERROR]: Registration error: Cannot destructure property 'email' of 'req.body' as it is undefined. + undefined
+2025-05-02 15:27:56 [ERROR]: Registration error: Cannot destructure property 'email' of 'req.body' as it is undefined. + undefined
+2025-05-02 15:36:31 [ERROR]: Registration error: Cannot destructure property 'email' of 'req.body' as it is undefined. + undefined
+2025-05-02 15:43:08 [ERROR]: Registration error: Cannot destructure property 'email' of 'req.body' as it is undefined. + undefined
+2025-05-02 15:44:50 [ERROR]: Registration error: secretOrPrivateKey must have a value + [object Object]
+2025-05-02 15:48:21 [ERROR]: Login error: secretOrPrivateKey must have a value
+2025-05-02 15:55:02 [ERROR]: Login error: secretOrPrivateKey must have a value
+2025-05-02 18:02:21 [ERROR]: Registration error: secretOrPrivateKey must have a value + [object Object]
+2025-05-02 18:18:38 [ERROR]: Task creation error: Cannot destructure property 'title' of 'req.body' as it is undefined.
+2025-05-02 18:20:17 [ERROR]: Task creation error: 
+Invalid `prisma.user.findUnique()` invocation in
+C:\Users\hedayat\task-management-backend\src\controllers\taskController.js:11:44
+
+   8 
+   9 // Validate assigned user
+  10 if (assignedToId) {
+→ 11   const userExists = await prisma.user.findUnique({
+         where: {
+           id: "2"
+               ~~~
+         }
+       })
+
+Argument `id`: Invalid value provided. Expected Int, provided String.
+2025-05-02 18:22:46 [ERROR]: Task creation error: 
+Invalid `prisma.task.create()` invocation in
+C:\Users\hedayat\task-management-backend\src\controllers\taskController.js:20:36
+
+  17 }
+  18 
+  19 // Create task
+→ 20 const task = await prisma.task.create({
+       data: {
+         title: "hedyat@gmail.com",
+         description: "totalc1234",
+         dueDate: new Date("2024-03-05T00:00:00.000Z"),
+         priority: "HIGH",
+         status: "TODO",
+         recurrence: "NONE",
+         createdById: 3,
+         assignedToId: "2"
+                       ~~~
+       },
+       include: {
+         createdBy: true,
+         assignedTo: true
+       }
+     })
+
+Argument `assignedToId`: Invalid value provided. Expected Int or Null, provided String.
+2025-05-02 18:24:25 [ERROR]: Task creation error: Assignment to constant variable.
+2025-05-02 18:27:03 [ERROR]: Notification creation error: 
+Invalid `prisma.notification.create()` invocation in
+C:\Users\hedayat\task-management-backend\src\controllers\notificationController.js:36:52
+
+  33 
+  34 const createNotification = async (userId, message, type = 'IN_APP') => {
+  35   try {
+→ 36     const notification = await prisma.notification.create({
+           data: {
+             message: "New task assigned: hedyat@gmail.com",
+             type: "IN_APP",
+             userId: "2"
+                     ~~~
+           }
+         })
+
+Argument `userId`: Invalid value provided. Expected Int, provided String.
+2025-05-02 18:32:13 [ERROR]: Notification creation error: 
+Invalid `prisma.notification.create()` invocation in
+C:\Users\hedayat\task-management-backend\src\controllers\notificationController.js:36:52
+
+  33 
+  34 const createNotification = async (userId, message, type = 'IN_APP') => {
+  35   try {
+→ 36     const notification = await prisma.notification.create({
+           data: {
+             message: "New task assigned: Good Will",
+             type: "IN_APP",
+             userId: "1"
+                     ~~~
+           }
+         })
+
+Argument `userId`: Invalid value provided. Expected Int, provided String.
+2025-05-02 18:56:24 [ERROR]: Task fetch error: 
+Invalid `prisma.task.findUnique()` invocation in
+C:\Users\hedayat\task-management-backend\src\controllers\taskController.js:264:36
+
+  261 try {
+  262   const taskId = parseInt(req.params.id);
+  263   
+→ 264   const task = await prisma.task.findUnique({
+          where: {
+            id: 7
+          },
+          include: {
+            createdBy: true,
+            assignedTo: true,
+            auditLogs: {
+            ~~~~~~~~~
+              orderBy: {
+                createdAt: "desc"
+              },
+              take: 10
+            }
+          }
+        })
+
+Unknown field `auditLogs` for include statement on model `Task`. Available options are marked with ?.
+2025-05-02 19:52:21 [ERROR]: Task update error: 
+Invalid `prisma.user.findUnique()` invocation in
+C:\Users\hedayat\task-management-backend\src\controllers\taskController.js:111:44
+
+  108 
+  109 // Validate assigned user if changing assignment
+  110 if (updateData.assignedToId) {
+→ 111   const userExists = await prisma.user.findUnique({
+          where: {
+            id: "3"
+                ~~~
+          }
+        })
+
+Argument `id`: Invalid value provided. Expected Int, provided String.
+2025-05-02 19:54:45 [ERROR]: Task update error: 
+Invalid `prisma.task.update()` invocation in
+C:\Users\hedayat\task-management-backend\src\controllers\taskController.js:120:43
+
+  117 }
+  118 
+  119 // Update task
+→ 120 const updatedTask = await prisma.task.update({
+        where: {
+          id: 8
+        },
+        data: {
+          title: "new work b",
+          description: "get up to it",
+          dueDate: new Date("2024-03-05T00:00:00.000Z"),
+          priority: "LOW",
+          status: "DONE",
+          recurrence: undefined,
+          assignedToId: "3"
+                        ~~~
+        },
+        include: {
+          createdBy: true,
+          assignedTo: true
+        }
+      })
+
+Argument `assignedToId`: Invalid value provided. Expected Int, NullableIntFieldUpdateOperationsInput or Null, provided String.
+2025-05-02 19:56:54 [ERROR]: Notification creation error: 
+Invalid `prisma.notification.create()` invocation in
+C:\Users\hedayat\task-management-backend\src\controllers\notificationController.js:36:52
+
+  33 
+  34 const createNotification = async (userId, message, type = 'IN_APP') => {
+  35   try {
+→ 36     const notification = await prisma.notification.create({
+           data: {
+             message: "Task updated: new work b",
+             type: "IN_APP",
+             userId: "3"
+                     ~~~
+           }
+         })
+
+Argument `userId`: Invalid value provided. Expected Int, provided String.
+2025-05-02 20:00:03 [ERROR]: Dashboard error: tasks.filter is not a function
