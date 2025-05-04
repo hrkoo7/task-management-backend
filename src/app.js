@@ -30,7 +30,7 @@ app.disable('x-powered-by');
 console.log('[5] Security middleware applied');
 
 app.use(cors({
-  origin: process.env.CORS_ORIGIN || '*',
+  origin: process.env.CORS_ORIGIN,
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH']
 }));
