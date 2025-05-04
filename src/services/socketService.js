@@ -7,8 +7,10 @@ let io = null;
 const initializeSocket = (server) => {
   io = socketio(server, {
     cors: {
-      origin: process.env.CLIENT_URL,
-      methods: ['GET', 'POST']
+      origin: "http://localhost:3000",
+      
+      methods: ['GET', 'POST'],
+      credentials: true 
     }
   });
 

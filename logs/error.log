@@ -173,3 +173,57 @@ C:\Users\hedayat\task-management-backend\src\controllers\notificationController.
 
 Argument `userId`: Invalid value provided. Expected Int, provided String.
 2025-05-02 20:00:03 [ERROR]: Dashboard error: tasks.filter is not a function
+2025-05-04 23:03:56 [ERROR]: Task fetch error: 
+Invalid `prisma.task.findUnique()` invocation in
+C:\Users\hedayat\task-management-backend\src\controllers\taskController.js:264:36
+
+  261 try {
+  262   const taskId = parseInt(req.params.id);
+  263   
+→ 264   const task = await prisma.task.findUnique({
+          where: {
+        +   id: Int
+          },
+          include: {
+            createdBy: true,
+            assignedTo: true
+          }
+        })
+
+Argument `id` is missing.
+2025-05-04 23:04:31 [ERROR]: Task fetch error: 
+Invalid `prisma.task.findUnique()` invocation in
+C:\Users\hedayat\task-management-backend\src\controllers\taskController.js:264:36
+
+  261 try {
+  262   const taskId = parseInt(req.params.id);
+  263   
+→ 264   const task = await prisma.task.findUnique({
+          where: {
+        +   id: Int
+          },
+          include: {
+            createdBy: true,
+            assignedTo: true
+          }
+        })
+
+Argument `id` is missing.
+2025-05-04 23:15:34 [ERROR]: Task fetch error: 
+Invalid `prisma.task.findUnique()` invocation in
+C:\Users\hedayat\task-management-backend\src\controllers\taskController.js:264:36
+
+  261 try {
+  262   const taskId = parseInt(req.params.id);
+  263   
+→ 264   const task = await prisma.task.findUnique({
+          where: {
+        +   id: Int
+          },
+          include: {
+            createdBy: true,
+            assignedTo: true
+          }
+        })
+
+Argument `id` is missing.

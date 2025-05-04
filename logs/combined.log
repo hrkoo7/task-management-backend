@@ -173,3 +173,237 @@ C:\Users\hedayat\task-management-backend\src\controllers\notificationController.
 
 Argument `userId`: Invalid value provided. Expected Int, provided String.
 2025-05-02 20:00:03 [ERROR]: Dashboard error: tasks.filter is not a function
+2025-05-04 21:07:09 [INFO]: New client connected: Yzl0h5ge6gux7asiAAAD
+2025-05-04 21:08:10 [INFO]: Client disconnected: Yzl0h5ge6gux7asiAAAD
+2025-05-04 21:08:10 [INFO]: New client connected: L7FaW5thMetB3BzuAAAF
+2025-05-04 21:08:11 [INFO]: Client disconnected: L7FaW5thMetB3BzuAAAF
+2025-05-04 21:08:11 [INFO]: New client connected: T0-u0om-kWn0bD8aAAAH
+2025-05-04 21:08:17 [INFO]: Client disconnected: T0-u0om-kWn0bD8aAAAH
+2025-05-04 21:08:17 [INFO]: New client connected: u8eODdw0VVOP396nAAAK
+2025-05-04 21:08:47 [INFO]: Client disconnected: u8eODdw0VVOP396nAAAK
+2025-05-04 21:08:48 [INFO]: New client connected: jBclHeULjG9xdQ2RAAAM
+2025-05-04 21:12:14 [INFO]: Client disconnected: jBclHeULjG9xdQ2RAAAM
+2025-05-04 21:12:15 [INFO]: New client connected: E3JsKqIwTg4xcS7QAAAO
+2025-05-04 21:12:25 [INFO]: Client disconnected: E3JsKqIwTg4xcS7QAAAO
+2025-05-04 21:12:25 [INFO]: New client connected: hG-eQA-mJPIxrIJrAAAQ
+2025-05-04 21:12:25 [INFO]: Client disconnected: hG-eQA-mJPIxrIJrAAAQ
+2025-05-04 21:13:11 [INFO]: New client connected: GeTe-KUgEbysSl-LAAAS
+2025-05-04 21:13:33 [INFO]: Client disconnected: GeTe-KUgEbysSl-LAAAS
+2025-05-04 21:13:33 [INFO]: New client connected: 9tHOrAWroXmdbVAaAAAU
+2025-05-04 21:18:31 [INFO]: Client disconnected: 9tHOrAWroXmdbVAaAAAU
+2025-05-04 21:18:32 [INFO]: New client connected: 3qi-mkgV0SKxdK6CAAAW
+2025-05-04 21:18:36 [INFO]: Client disconnected: 3qi-mkgV0SKxdK6CAAAW
+2025-05-04 21:18:36 [INFO]: New client connected: ExwzZCRN_LI-BWAuAAAY
+2025-05-04 21:18:50 [INFO]: Client disconnected: ExwzZCRN_LI-BWAuAAAY
+2025-05-04 21:18:50 [INFO]: New client connected: PphwtfvbM7ch7EYBAAAa
+2025-05-04 21:18:51 [INFO]: Client disconnected: PphwtfvbM7ch7EYBAAAa
+2025-05-04 21:22:56 [INFO]: New client connected: Y2Z2wW0I9TUEOU4aAAAc
+2025-05-04 21:23:18 [INFO]: Client disconnected: Y2Z2wW0I9TUEOU4aAAAc
+2025-05-04 21:23:18 [INFO]: New client connected: 22wERWUA8Y1IDwI_AAAe
+2025-05-04 21:23:37 [INFO]: Client disconnected: 22wERWUA8Y1IDwI_AAAe
+2025-05-04 21:23:37 [INFO]: New client connected: BKg47gC28uiMZtxkAAAg
+2025-05-04 21:23:41 [INFO]: Client disconnected: BKg47gC28uiMZtxkAAAg
+2025-05-04 21:23:42 [INFO]: New client connected: gxSEUYjgV1PHTdtbAAAi
+2025-05-04 21:24:25 [INFO]: Client disconnected: gxSEUYjgV1PHTdtbAAAi
+2025-05-04 21:24:26 [INFO]: New client connected: g6ze0uMgf0bw-L6pAAAk
+2025-05-04 21:25:19 [INFO]: Client disconnected: g6ze0uMgf0bw-L6pAAAk
+2025-05-04 21:25:20 [INFO]: New client connected: GoV5kicawivkmtlxAAAm
+2025-05-04 21:25:22 [INFO]: Client disconnected: GoV5kicawivkmtlxAAAm
+2025-05-04 21:25:23 [INFO]: New client connected: Z8dj05GYn6HN4-hiAAAo
+2025-05-04 21:25:24 [INFO]: Client disconnected: Z8dj05GYn6HN4-hiAAAo
+2025-05-04 21:25:24 [INFO]: New client connected: fJEYar-soKweCyiWAAAq
+2025-05-04 21:27:47 [INFO]: Client disconnected: fJEYar-soKweCyiWAAAq
+2025-05-04 21:27:47 [INFO]: New client connected: Oe3Dix8jbJKr-SyBAAAs
+2025-05-04 21:33:41 [INFO]: Client disconnected: Oe3Dix8jbJKr-SyBAAAs
+2025-05-04 21:33:42 [INFO]: New client connected: QgciOYm5WkvL2XW7AAAu
+2025-05-04 21:50:28 [INFO]: Client disconnected: QgciOYm5WkvL2XW7AAAu
+2025-05-04 21:50:29 [INFO]: New client connected: 0q3WI9YwJOP_wsDGAAAw
+2025-05-04 22:02:42 [INFO]: Client disconnected: 0q3WI9YwJOP_wsDGAAAw
+2025-05-04 22:02:43 [INFO]: New client connected: oLasE1rmrR18GTfUAAAy
+2025-05-04 22:02:43 [INFO]: Client disconnected: oLasE1rmrR18GTfUAAAy
+2025-05-04 22:02:43 [INFO]: New client connected: Becg06xmRJxv4jX9AAA0
+2025-05-04 22:02:46 [INFO]: Client disconnected: Becg06xmRJxv4jX9AAA0
+2025-05-04 22:02:46 [INFO]: New client connected: xRIG0YlMowgSzS42AAA3
+2025-05-04 22:02:56 [INFO]: Client disconnected: xRIG0YlMowgSzS42AAA3
+2025-05-04 22:02:56 [INFO]: New client connected: p2AamqGCj5B9PUs7AAA5
+2025-05-04 22:03:21 [INFO]: Client disconnected: p2AamqGCj5B9PUs7AAA5
+2025-05-04 22:03:21 [INFO]: New client connected: xdwkJ5Jsk1yTm8c2AAA7
+2025-05-04 22:03:36 [INFO]: Client disconnected: xdwkJ5Jsk1yTm8c2AAA7
+2025-05-04 22:03:36 [INFO]: New client connected: Ek_Pc3Ad7its8dQcAAA9
+2025-05-04 22:03:49 [INFO]: Client disconnected: Ek_Pc3Ad7its8dQcAAA9
+2025-05-04 22:03:49 [INFO]: New client connected: I8BTFPLAOpEZkSc6AAA_
+2025-05-04 22:04:58 [INFO]: Client disconnected: I8BTFPLAOpEZkSc6AAA_
+2025-05-04 22:04:58 [INFO]: New client connected: ptuJmiG3VBWX-csCAABB
+2025-05-04 22:04:59 [INFO]: Client disconnected: ptuJmiG3VBWX-csCAABB
+2025-05-04 22:05:05 [INFO]: New client connected: Zk7yaoqStL0S-HRTAABD
+2025-05-04 22:05:09 [INFO]: Client disconnected: Zk7yaoqStL0S-HRTAABD
+2025-05-04 22:05:09 [INFO]: New client connected: gytSRT1t_j3CfnI8AABF
+2025-05-04 22:05:09 [INFO]: Client disconnected: gytSRT1t_j3CfnI8AABF
+2025-05-04 22:05:09 [INFO]: New client connected: AzoXhhrKFUadfsSXAABH
+2025-05-04 22:05:26 [INFO]: Client disconnected: AzoXhhrKFUadfsSXAABH
+2025-05-04 22:05:28 [INFO]: New client connected: 4Le0764YWrSixq2_AABJ
+2025-05-04 22:05:28 [INFO]: Client disconnected: 4Le0764YWrSixq2_AABJ
+2025-05-04 22:05:28 [INFO]: New client connected: N4tkgzJfU4MBQILoAABL
+2025-05-04 22:05:30 [INFO]: Client disconnected: N4tkgzJfU4MBQILoAABL
+2025-05-04 22:05:30 [INFO]: New client connected: qJFlqd12frbyyWctAABN
+2025-05-04 22:12:22 [INFO]: Client disconnected: qJFlqd12frbyyWctAABN
+2025-05-04 22:12:22 [INFO]: New client connected: U3gbnIl2-pQV8gg9AABQ
+2025-05-04 22:12:43 [INFO]: Client disconnected: U3gbnIl2-pQV8gg9AABQ
+2025-05-04 22:12:43 [INFO]: New client connected: bIL7y97622KWgfjVAABS
+2025-05-04 22:13:01 [INFO]: Client disconnected: bIL7y97622KWgfjVAABS
+2025-05-04 22:13:02 [INFO]: New client connected: Gv9PE4mfQxFmcDMwAABU
+2025-05-04 22:13:16 [INFO]: Client disconnected: Gv9PE4mfQxFmcDMwAABU
+2025-05-04 22:13:17 [INFO]: New client connected: 5HTVfDDRzlSSMiBXAABW
+2025-05-04 22:21:18 [INFO]: Client disconnected: 5HTVfDDRzlSSMiBXAABW
+2025-05-04 22:21:19 [INFO]: New client connected: SoFpPE-_Cp_u0Hl6AABY
+2025-05-04 22:21:53 [INFO]: Client disconnected: SoFpPE-_Cp_u0Hl6AABY
+2025-05-04 22:21:53 [INFO]: New client connected: azJRtGENOlIfVwSDAABa
+2025-05-04 22:21:59 [INFO]: Client disconnected: azJRtGENOlIfVwSDAABa
+2025-05-04 22:21:59 [INFO]: New client connected: a9TZhE_SOmmK8_KkAABd
+2025-05-04 22:22:09 [INFO]: Client disconnected: a9TZhE_SOmmK8_KkAABd
+2025-05-04 22:22:09 [INFO]: New client connected: VwFsp6gITH0Mt0u8AABg
+2025-05-04 22:22:17 [INFO]: Client disconnected: VwFsp6gITH0Mt0u8AABg
+2025-05-04 22:22:17 [INFO]: New client connected: _fRGF1TS21hqiVewAABj
+2025-05-04 22:22:20 [INFO]: Client disconnected: _fRGF1TS21hqiVewAABj
+2025-05-04 22:22:20 [INFO]: New client connected: SLVJZML5WalTUIvNAABl
+2025-05-04 22:22:28 [INFO]: Client disconnected: SLVJZML5WalTUIvNAABl
+2025-05-04 22:22:28 [INFO]: New client connected: r72ePz57Pv_dcv5QAABn
+2025-05-04 22:23:03 [INFO]: Client disconnected: r72ePz57Pv_dcv5QAABn
+2025-05-04 22:23:03 [INFO]: New client connected: K9BXk1HK6BFiC0cpAABp
+2025-05-04 22:23:07 [INFO]: Client disconnected: K9BXk1HK6BFiC0cpAABp
+2025-05-04 22:23:07 [INFO]: New client connected: sexJR7m8H8kKbWVuAABr
+2025-05-04 22:23:19 [INFO]: Client disconnected: sexJR7m8H8kKbWVuAABr
+2025-05-04 22:23:19 [INFO]: New client connected: vvzbtJU596RRKyhLAABt
+2025-05-04 22:23:24 [INFO]: Client disconnected: vvzbtJU596RRKyhLAABt
+2025-05-04 22:23:24 [INFO]: New client connected: BANSv0HZlsLKQBipAABv
+2025-05-04 22:23:25 [INFO]: Client disconnected: BANSv0HZlsLKQBipAABv
+2025-05-04 22:23:25 [INFO]: New client connected: z9bwflEZCFSJw49kAABx
+2025-05-04 22:23:39 [INFO]: Client disconnected: z9bwflEZCFSJw49kAABx
+2025-05-04 22:23:40 [INFO]: New client connected: VLXi90T4n8nKvCwWAABz
+2025-05-04 22:24:39 [INFO]: Client disconnected: VLXi90T4n8nKvCwWAABz
+2025-05-04 22:24:39 [INFO]: New client connected: ykljHrs283tcfVC5AAB1
+2025-05-04 22:25:05 [INFO]: Client disconnected: ykljHrs283tcfVC5AAB1
+2025-05-04 22:26:08 [INFO]: New client connected: 2z0pIDXttPKOgHU9AAB3
+2025-05-04 22:26:10 [INFO]: Client disconnected: 2z0pIDXttPKOgHU9AAB3
+2025-05-04 22:26:11 [INFO]: New client connected: XkDDq6jm66jGwlaCAAB5
+2025-05-04 22:27:07 [INFO]: Client disconnected: XkDDq6jm66jGwlaCAAB5
+2025-05-04 22:27:07 [INFO]: New client connected: dMiywYm-Lwwso67zAAB7
+2025-05-04 22:27:22 [INFO]: Client disconnected: dMiywYm-Lwwso67zAAB7
+2025-05-04 22:27:23 [INFO]: New client connected: GISMbpjLd7foYsnGAAB9
+2025-05-04 22:31:39 [INFO]: Client disconnected: GISMbpjLd7foYsnGAAB9
+2025-05-04 22:31:39 [INFO]: New client connected: D1w9karbe5J4BdaEAACB
+2025-05-04 22:31:46 [INFO]: Client disconnected: D1w9karbe5J4BdaEAACB
+2025-05-04 22:31:46 [INFO]: New client connected: ePVvicL0gE2HWQK7AACE
+2025-05-04 22:32:13 [INFO]: Client disconnected: ePVvicL0gE2HWQK7AACE
+2025-05-04 22:32:14 [INFO]: New client connected: Vmg2Y55p2IOJz7VOAACG
+2025-05-04 22:32:25 [INFO]: Client disconnected: Vmg2Y55p2IOJz7VOAACG
+2025-05-04 22:32:26 [INFO]: New client connected: _lBFCko-Y7SqumG1AACI
+2025-05-04 22:32:42 [INFO]: Client disconnected: _lBFCko-Y7SqumG1AACI
+2025-05-04 22:32:42 [INFO]: New client connected: ccUDjS-NQre1UNIVAACK
+2025-05-04 22:33:55 [INFO]: Client disconnected: ccUDjS-NQre1UNIVAACK
+2025-05-04 22:33:55 [INFO]: New client connected: y3X46VARpzRH8u5VAACM
+2025-05-04 22:34:04 [INFO]: Client disconnected: y3X46VARpzRH8u5VAACM
+2025-05-04 22:34:04 [INFO]: New client connected: u-2ZOibB4n4PwXoZAACO
+2025-05-04 22:34:12 [INFO]: Client disconnected: u-2ZOibB4n4PwXoZAACO
+2025-05-04 22:34:13 [INFO]: New client connected: bsuQzwW6HPc7WE--AACQ
+2025-05-04 22:34:33 [INFO]: Client disconnected: bsuQzwW6HPc7WE--AACQ
+2025-05-04 22:34:34 [INFO]: New client connected: qbOjRO4KnVjpMqDiAACS
+2025-05-04 22:37:30 [INFO]: Client disconnected: qbOjRO4KnVjpMqDiAACS
+2025-05-04 22:37:30 [INFO]: New client connected: zyhrzYB9XFbKJHsmAACU
+2025-05-04 22:37:40 [INFO]: Client disconnected: zyhrzYB9XFbKJHsmAACU
+2025-05-04 22:37:41 [INFO]: New client connected: z5EdPk-apzoRwYqGAACW
+2025-05-04 22:38:00 [INFO]: New client connected: eA55CI22VWAGPyIXAACY
+2025-05-04 22:38:29 [INFO]: Client disconnected: eA55CI22VWAGPyIXAACY
+2025-05-04 22:38:43 [INFO]: New client connected: Q3HuwuHkiturMA9xAACa
+2025-05-04 22:39:54 [INFO]: Client disconnected: z5EdPk-apzoRwYqGAACW
+2025-05-04 22:39:54 [INFO]: Client disconnected: Q3HuwuHkiturMA9xAACa
+2025-05-04 22:40:24 [INFO]: New client connected: SOk3oG067YTn5dpoAACc
+2025-05-04 22:41:12 [INFO]: Client disconnected: SOk3oG067YTn5dpoAACc
+2025-05-04 22:41:12 [INFO]: New client connected: Nwz3baPv9DW77VS_AACe
+2025-05-04 22:41:23 [INFO]: Client disconnected: Nwz3baPv9DW77VS_AACe
+2025-05-04 22:41:23 [INFO]: New client connected: 6w7N-KU7xg6fEnIdAACg
+2025-05-04 22:48:19 [INFO]: Client disconnected: 6w7N-KU7xg6fEnIdAACg
+2025-05-04 22:48:19 [INFO]: New client connected: MyAoeWmGewI9E8ubAACj
+2025-05-04 22:48:20 [INFO]: Client disconnected: MyAoeWmGewI9E8ubAACj
+2025-05-04 22:48:20 [INFO]: New client connected: ELgJA147niSoitQ8AACl
+2025-05-04 22:49:08 [INFO]: Client disconnected: ELgJA147niSoitQ8AACl
+2025-05-04 22:49:08 [INFO]: New client connected: KLh4Otc6bUwvBYYzAACn
+2025-05-04 22:49:22 [INFO]: Client disconnected: KLh4Otc6bUwvBYYzAACn
+2025-05-04 22:49:22 [INFO]: New client connected: rgW1oaP8TpxcR7R8AACp
+2025-05-04 22:49:48 [INFO]: Client disconnected: rgW1oaP8TpxcR7R8AACp
+2025-05-04 22:49:48 [INFO]: New client connected: 0rYjQlzolH1d30VtAACr
+2025-05-04 22:51:40 [INFO]: Client disconnected: 0rYjQlzolH1d30VtAACr
+2025-05-04 22:51:41 [INFO]: New client connected: kL8jkqpkm0gqUX_vAACu
+2025-05-04 22:51:59 [INFO]: New client connected: jSeZP3hsqoI8z6SGAACw
+2025-05-04 22:53:11 [INFO]: Client disconnected: jSeZP3hsqoI8z6SGAACw
+2025-05-04 23:01:08 [INFO]: Client disconnected: kL8jkqpkm0gqUX_vAACu
+2025-05-04 23:01:08 [INFO]: New client connected: WyT4ZnsMWyiWoV7EAACy
+2025-05-04 23:01:19 [INFO]: New client connected: jwxnRTg0ChbDgMHIAAC0
+2025-05-04 23:03:56 [ERROR]: Task fetch error: 
+Invalid `prisma.task.findUnique()` invocation in
+C:\Users\hedayat\task-management-backend\src\controllers\taskController.js:264:36
+
+  261 try {
+  262   const taskId = parseInt(req.params.id);
+  263   
+→ 264   const task = await prisma.task.findUnique({
+          where: {
+        +   id: Int
+          },
+          include: {
+            createdBy: true,
+            assignedTo: true
+          }
+        })
+
+Argument `id` is missing.
+2025-05-04 23:04:31 [ERROR]: Task fetch error: 
+Invalid `prisma.task.findUnique()` invocation in
+C:\Users\hedayat\task-management-backend\src\controllers\taskController.js:264:36
+
+  261 try {
+  262   const taskId = parseInt(req.params.id);
+  263   
+→ 264   const task = await prisma.task.findUnique({
+          where: {
+        +   id: Int
+          },
+          include: {
+            createdBy: true,
+            assignedTo: true
+          }
+        })
+
+Argument `id` is missing.
+2025-05-04 23:15:34 [ERROR]: Task fetch error: 
+Invalid `prisma.task.findUnique()` invocation in
+C:\Users\hedayat\task-management-backend\src\controllers\taskController.js:264:36
+
+  261 try {
+  262   const taskId = parseInt(req.params.id);
+  263   
+→ 264   const task = await prisma.task.findUnique({
+          where: {
+        +   id: Int
+          },
+          include: {
+            createdBy: true,
+            assignedTo: true
+          }
+        })
+
+Argument `id` is missing.
+2025-05-04 23:32:18 [INFO]: Client disconnected: WyT4ZnsMWyiWoV7EAACy
+2025-05-04 23:32:18 [INFO]: Client disconnected: jwxnRTg0ChbDgMHIAAC0
+2025-05-04 23:32:19 [INFO]: New client connected: e22zKkSmGE8CeZyQAAC2
+2025-05-04 23:33:05 [INFO]: New client connected: jilz_DOnDgeht2JmAAC4
+2025-05-04 23:37:50 [INFO]: Client disconnected: e22zKkSmGE8CeZyQAAC2
+2025-05-04 23:37:50 [INFO]: Client disconnected: jilz_DOnDgeht2JmAAC4
+2025-05-04 23:37:51 [INFO]: New client connected: d5jS3c6ELtxdQzn7AAC6
+2025-05-04 23:39:14 [INFO]: Client disconnected: d5jS3c6ELtxdQzn7AAC6
+2025-05-04 23:39:14 [INFO]: New client connected: IfW8UBE_lEIUV3wtAAC8
+2025-05-04 23:39:40 [INFO]: New client connected: OTtK0q88235h6bdkAAC-
+2025-05-04 23:41:32 [INFO]: Client disconnected: OTtK0q88235h6bdkAAC-
+2025-05-04 23:41:47 [INFO]: New client connected: k_Lts9fBPKNRir3vAADA
+2025-05-04 23:47:18 [INFO]: Client disconnected: IfW8UBE_lEIUV3wtAAC8
+2025-05-04 23:47:18 [INFO]: Client disconnected: k_Lts9fBPKNRir3vAADA
