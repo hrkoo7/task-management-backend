@@ -93,7 +93,7 @@ const startServer = async () => {
   console.log('[14] WebSocket initialized');
 
   // Start Server
-  const PORT = process.env.PORT || 5000;
+  const PORT = process.env.PORT;
   server.listen(PORT, () => {
     console.log(`[15] Server listening on port ${PORT}`);
     console.log(`[16] Environment: ${process.env.NODE_ENV || 'development'}`);
