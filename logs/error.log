@@ -227,3 +227,141 @@ C:\Users\hedayat\task-management-backend\src\controllers\taskController.js:264:3
         })
 
 Argument `id` is missing.
+2025-05-05 17:35:34 [ERROR]: Task fetch error: Cannot read properties of undefined (reading 'id')
+2025-05-05 17:41:09 [ERROR]: Task fetch error: Cannot read properties of undefined (reading 'id')
+2025-05-05 19:33:57 [ERROR]: Task fetch error: Cannot read properties of undefined (reading 'id')
+2025-05-05 19:43:13 [ERROR]: Notification creation error: 
+Invalid `prisma.notification.create()` invocation in
+C:\Users\hedayat\task-management-backend\src\controllers\notificationController.js:36:52
+
+  33 
+  34 const createNotification = async (userId, message, type = 'IN_APP') => {
+  35   try {
+→ 36     const notification = await prisma.notification.create({
+           data: {
+             message: "Task updated: Task 7",
+             type: "IN_APP",
+             userId: "4"
+                     ~~~
+           }
+         })
+
+Argument `userId`: Invalid value provided. Expected Int, provided String.
+2025-05-05 21:16:47 [ERROR]: Notification creation error: 
+Invalid `prisma.notification.create()` invocation in
+C:\Users\hedayat\task-management-backend\src\controllers\notificationController.js:36:52
+
+  33 
+  34 const createNotification = async (userId, message, type = 'IN_APP') => {
+  35   try {
+→ 36     const notification = await prisma.notification.create({
+           data: {
+             message: "Task updated: Kuch kaam",
+             type: "IN_APP",
+             userId: "4"
+                     ~~~
+           }
+         })
+
+Argument `userId`: Invalid value provided. Expected Int, provided String.
+2025-05-06 16:11:12 [ERROR]: Task update error: 
+Invalid `prisma.task.update()` invocation in
+C:\Users\hedayat\task-management-backend\src\controllers\taskController.js:127:43
+
+  124 }
+  125 
+  126 // Update task
+→ 127 const updatedTask = await prisma.task.update({
+        where: {
+          id: 10
+        },
+        data: {
+          title: "other work",
+          description: "laazmi",
+          dueDate: new Date("2025-05-23T00:00:00.000Z"),
+          priority: "HIGH",
+          status: "PENDING",
+                  ~~~~~~~~~
+          recurrence: "NONE",
+          assignedToId: 6
+        },
+        include: {
+          createdBy: true,
+          assignedTo: true
+        }
+      })
+
+Invalid value for argument `status`. Expected Status.
+2025-05-06 16:12:04 [ERROR]: Task update error: 
+Invalid `prisma.task.update()` invocation in
+C:\Users\hedayat\task-management-backend\src\controllers\taskController.js:127:43
+
+  124 }
+  125 
+  126 // Update task
+→ 127 const updatedTask = await prisma.task.update({
+        where: {
+          id: 15
+        },
+        data: {
+          title: "task 6",
+          description: "high priority",
+          dueDate: new Date("2025-05-16T00:00:00.000Z"),
+          priority: "HIGH",
+          status: "PENDING",
+                  ~~~~~~~~~
+          recurrence: "NONE",
+          assignedToId: 2
+        },
+        include: {
+          createdBy: true,
+          assignedTo: true
+        }
+      })
+
+Invalid value for argument `status`. Expected Status.
+2025-05-06 16:20:38 [ERROR]: Notification creation error: 
+Invalid `prisma.notification.create()` invocation in
+C:\Users\hedayat\task-management-backend\src\controllers\notificationController.js:36:52
+
+  33 
+  34 const createNotification = async (userId, message, type = 'IN_APP') => {
+  35   try {
+→ 36     const notification = await prisma.notification.create({
+           data: {
+             message: "Task updated: TASK 10",
+             type: "IN_APP",
+             userId: "4"
+                     ~~~
+           }
+         })
+
+Argument `userId`: Invalid value provided. Expected Int, provided String.
+2025-05-06 16:21:00 [ERROR]: Task update error: 
+Invalid `prisma.task.update()` invocation in
+C:\Users\hedayat\task-management-backend\src\controllers\taskController.js:127:43
+
+  124 }
+  125 
+  126 // Update task
+→ 127 const updatedTask = await prisma.task.update({
+        where: {
+          id: 17
+        },
+        data: {
+          title: "TASK 10",
+          description: "Ten on Ten",
+          dueDate: new Date("2025-05-03T00:00:00.000Z"),
+          priority: "LOW",
+          status: "PENDING",
+                  ~~~~~~~~~
+          recurrence: "NONE",
+          assignedToId: 4
+        },
+        include: {
+          createdBy: true,
+          assignedTo: true
+        }
+      })
+
+Invalid value for argument `status`. Expected Status.
